@@ -5,6 +5,11 @@ const app = new Vue({
   },
   data:{
     image: null,
+    download: '',
+    imageDetail: {
+      name: '',
+      description: ''
+    },
     formdata: new FormData(),
     pictures: []
   },
@@ -14,12 +19,27 @@ const app = new Vue({
     },
     onUpload() {
       // upload file
+
+      var token = localStorage.getItem('token');
+
       this.formdata.set('item', this.image)
+      this.formdata.set('description', this.imageDetail.description)
+      this.formdata.set('picture_name', this.imageDetail.name)
+      this.formdata.set('token', token)
 
       axios.post('http://localhost:3000/image', this.formdata)
       .then(response => {
+        swal({
+          title: "Yosh!",
+          text: "Successfully save image!",
+          icon: "success",
+        });
+
+        this.imageDetail.name = ''
+        this.imageDetail.description = ''
+        this.imageDetail.category = ''
+
         this.getImage()
-        console.log('');
       })
       .catch(err => {
         console.log(err);
