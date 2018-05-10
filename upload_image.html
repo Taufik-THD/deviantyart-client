@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <title>file-upload-vue</title>
+    <!--include bootstrap-->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  </head>
+
+  <style media="screen">
+
+    .container{
+      width: 100px;
+      height: 100px;
+    }
+
+  </style>
+
+  <body>
+
+
+    <div class="input-group" id="app">
+      <div class="custom-file">
+        <input type="file" class="custom-file-input" @change="onFileChanged">
+        <label class="custom-file-label" for="inputGroupFile04">Choose file</label>
+      </div>
+      <div class="input-group-append">
+        <button class="btn btn-outline-secondary" type="button" @click="onUpload">Upload File</button>
+      </div>
+    </div>
+
+    <div class="container" id="app">
+      <input type="file" @change="onFileChanged">
+      <button @click="onUpload">Upload!</button>
+
+      <div class="upload-image" v-if="image">
+        <img :src="image" alt="">
+      </div>
+    </div>
+
+  </body>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script type="text/javascript" src="script.js"></script>
+</html>
