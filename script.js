@@ -16,7 +16,7 @@ const app = new Vue({
       // upload file
       this.formdata.set('item', this.image)
 
-      axios.post('http://localhost:3000/image', this.formdata)
+      axios.post('http://localhost:9000/image', this.formdata)
       .then(response => {
         this.getImage()
         console.log('');
@@ -36,7 +36,7 @@ const app = new Vue({
       reader.readAsDataURL(file);
     },
     getImage(){
-      axios.get('http://localhost:3000/')
+      axios.get('http://localhost:9000/')
       .then(({data})=>{
         this.pictures = data.data
       })

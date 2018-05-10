@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script
     src="https://code.jquery.com/jquery-3.3.1.min.js"
     integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
@@ -15,8 +14,7 @@
     <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/semantic-ui/0.12.0/css/semantic.min.css"/>
     <link rel='stylesheet prefetch' href='https://jeffry.in/old-jeffry-in/css/jeffry.in.css'>
     <link rel='stylesheet prefetch' href='https://fonts.googleapis.com/css?family=Lobster|Raleway:300,500,700'>
-    <link rel='stylesheet' href='./index.css'>
-    <script src="./component/card.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
     <script src='https://cdn.jsdelivr.net/jquery.glide/1.0.6/jquery.glide.min.js'></script>
     <title>Document</title>
@@ -33,6 +31,7 @@
 </style>
 </head>
 <body>
+  <div id="profile">
 
         <nav class="navbar navbar-default">
                 <div class="container-fluid">
@@ -99,36 +98,23 @@
 
 
 <!-- SINGLE CARD END-->
-<h2 class="ui centered">Uploaded Images by {{Username}}</h2>
+<h2 class="ui centered">Uploaded Images by</h2>
+
 <!--IMAGES-->
 <div class ="content imageList">
-<div class="doubling four column ui grid container ">
-        <div class="column">
-            <div class="">
-                    <div class="ui card">
-                            <div class="image">
-                              <img src="assets/list2.jpg">
-                            </div>
-                            <div class="content">
-                              <div class="description">
-                               description disini
-                              </div>
-                            </div>
-                            <div class="extra content">
-                              <a>
-                                <button type="button" class="ui button" data-toggle="modal" data-target="#myModal">
-                                  detail
-                                </button>
-                              </a>
-                            </div>
-                    </div>
-            </div>
-          </div>`
-        </div>
-    </div>
-        
+  <div class="doubling four column ui grid container ">
+  <images  v-on:like="addLikes" v-for="(picture, index) in Pictures" v-bind:gambar="picture" v-bind:index="index"></images>
+  
+</div>
+</div>
+  <!--IMAGE END-->
 
-<!--IMAGES END-->
+</div>
+
+
 
 </body>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="/profile.js"></script>
+<script src="components/profile-component.js"></script>
 </html>
