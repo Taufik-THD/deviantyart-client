@@ -9,6 +9,10 @@ const app = new Vue({
     pictures: []
   },
   methods: {
+    logout(){
+      localStorage.removeItem("token");
+      window.location = '/login.html'
+    },
     onFileChanged (event) {
       this.image = event.target.files[0]
     },

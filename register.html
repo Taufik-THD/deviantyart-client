@@ -98,27 +98,27 @@
 </div> 
 </div>
 <script>
-       var app=new Vue({
-      el:'#app',
-      data:{
-        nama:'',
-        email:'',
-        password:''
-      },
-      methods:{
-        register(){
-          axios.post('http://localhost:3000/register',{email:this.email, password:this.password ,nama:this.nama })
-          .then(data=>{
-            console.log(data)
-            window.location = '/login.html'
-          })
-          .catch(err=>{
-            alert(err)
-            console.log('==========================',err)
-          })
+    var app=new Vue({
+        el:'#app',
+        data:{
+          nama:'',
+          email:'',
+          password:''
+        },
+        methods:{
+          register(){
+            axios.post('http://localhost:3000/register',{email:this.email, password:this.password ,nama:this.nama })
+            .then(data=>{
+              console.log(data)
+              window.location = '/login.html'
+            })
+            .catch(err=>{
+              alert(err)
+              console.log('==========================',err)
+            })
+          }
         }
-      }
-    })
+      })
 
 </script>
 
