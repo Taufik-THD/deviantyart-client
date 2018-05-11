@@ -21,6 +21,15 @@
     <title>Home</title>
 </head>
 
+<style media="screen">
+  .button-position{
+    padding-left: 27%;
+  }
+  .btn-pos{
+    padding-left: 81.1%;
+  }
+</style>
+
 <body>
 
   <div class="container" id="app">
@@ -42,7 +51,6 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav">
             <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Category<span class="caret"></span></a>
               <ul class="dropdown-menu">
                 <li><a href="#">Digital Art</a></li>
                 <li role="separator" class="divider"></li>
@@ -53,11 +61,18 @@
             </li>
           </ul>
           <form class="navbar-form navbar-left">
-            <div class="form-group">
-              <input type="text" class="form-control" placeholder="Search">
+            <div class="container">
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="Search">
+                <button type="submit" class="btn btn-default">Submit</button>
+              </div>
+              <div class="btn-pos">
+                <button class="btn btn-default"><a href="/register.html">Register</a></button>
+                <button class="btn btn-default"><a href="/login.html">Login</a></button>
+              </div>
             </div>
-            <button type="submit" class="btn btn-default">Submit</button>
           </form>
+
           <ul class="nav navbar-nav navbar-right">
             <li><a href="#">Link</a></li>
             <li class="dropdown">
@@ -65,44 +80,132 @@
               <ul class="dropdown-menu">
                 <li><a href="#">My Profile</a></li>
                 <li role="separator" class="divider"></li>
-                <li><a href="#">Log Out</a></li>
+                <li><a @click='logout' href="#">Log Out</a></li>
               </ul>
             </li>
           </ul>
+
         </div><!-- /.navbar-collapse -->
       </div><!-- /.container-fluid -->
     </nav>
 
     <!-- CONTENT-->
-    <div class="doubling four column ui grid container " >
+    <div class="container">
+      <div class="doubling four column ui grid container" >
 
-      <div class="row">
-        <div class="column" v-for = 'image in pictures' style="margin-bottom: 10px">
-          <div class="ui card">
-            <div class="image">
-              <img :src="image.pic_url" style="height:250px">
-            </div>
-            <div class="content">
-              <a class="header">{{image.category}}</a>
-              <div class="description" >
-                {{image.description}}
+        <div class="row">
+          <div class="column" v-for = 'image in pictures' style="margin-bottom: 10px">
+            <div class="ui card">
+              <div class="image">
+                <img :src="image.pic_url" style="height:250px">
+              </div>
+              <div class="content">
+                <a class="header">{{image.picture_name}}</a>
+                <div class="description" >
+                  {{image.description}}
+                </div>
+              </div>
+              <div class="extra content">
+                <a>
+                  <div class="button-position">
+                    <button type="button" class="ui button" data-toggle="modal" data-target="#myModal">
+                      <a v-bind:href = "image.pic_url" download="newname">Zoom In</a>
+                    </button>
+
+                  </div>
+                </a>
               </div>
             </div>
-            <div class="extra content">
-              <a>
-                <button type="button" class="ui button" data-toggle="modal" data-target="#myModal">
-                  like
-                </button>
-              </a>
-            </div>
-          </div>
-        </div>`
+          </div>`
+        </div>
       </div>
+
     </div>
+    <social-sharing url="https://vuejs.org/"
+                      title="The Progressive JavaScript Framework"
+                      description="Intuitive, Fast and Composable MVVM for building interactive interfaces."
+                      quote="Vue is a progressive framework for building user interfaces."
+                      hashtags="vuejs,javascript,framework"
+                      twitter-user="vuejs"
+                      inline-template>
+  <div>
+      <network network="email">
+          <i class="fa fa-envelope"></i> Email
+      </network>
+      <network network="facebook">
+        <i class="fa fa-facebook"></i> Facebook
+      </network>
+      <network network="googleplus">
+        <i class="fa fa-google-plus"></i> Google +
+      </network>
+      <network network="line">
+        <i class="fa fa-line"></i> Line
+      </network>
+      <network network="linkedin">
+        <i class="fa fa-linkedin"></i> LinkedIn
+      </network>
+      <network network="odnoklassniki">
+        <i class="fa fa-odnoklassniki"></i> Odnoklassniki
+      </network>
+      <network network="pinterest">
+        <i class="fa fa-pinterest"></i> Pinterest
+      </network>
+      <network network="reddit">
+        <i class="fa fa-reddit"></i> Reddit
+      </network>
+      <network network="skype">
+        <i class="fa fa-skype"></i> Skype
+      </network>
+      <network network="sms">
+        <i class="fa fa-commenting-o"></i> SMS
+      </network>
+      <network network="telegram">
+        <i class="fa fa-telegram"></i> Telegram
+      </network>
+      <network network="twitter">
+        <i class="fa fa-twitter"></i> Twitter
+      </network>
+      <network network="vk">
+        <i class="fa fa-vk"></i> VKontakte
+      </network>
+      <network network="weibo">
+        <i class="fa fa-weibo"></i> Weibo
+      </network>
+      <network network="whatsapp">
+        <i class="fa fa-whatsapp"></i> Whatsapp
+      </network>
+  </div>
+  
+
+</body>
+</html>
+  
+
+</social-sharing>
+
+   <!-- AddToAny END -->
   </div>
 
 
 </body>
+<script src="/dist/vue-social-sharing.min.js"></script>
+<script>function fbs_click() {
+  u = location.href;
+  t=document.title;
+  window.open('http://www.facebook.com/sharer.php?u='+encodeURIComponent(u)+'&t='+encodeURIComponent(t),
+  'sharer',
+  'toolbar=0,status=0,width=626,height=436');
+  return false;}
+</script>
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 <script type="text/javascript" src="script.js"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = 'https://connect.facebook.net/id_ID/sdk.js#xfbml=1&version=v3.0&appId=447078202406651&autoLogAppEvents=1';
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
 </html>
