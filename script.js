@@ -68,7 +68,7 @@ const app = new Vue({
       this.formdata.set('picture_name', this.imageDetail.name)
       this.formdata.set('token', token)
 
-      axios.post('http://localhost:3000/image', this.formdata)
+      axios.post('http://localhost:9000/image', this.formdata)
       .then(response => {
         swal({
           title: "Yosh!",
@@ -88,7 +88,7 @@ const app = new Vue({
 
     },
     getImage(){
-      axios.get('http://localhost:3000/')
+      axios.get('http://localhost:9000/')
       .then(({data})=>{
         this.pictures = data.data
       })
