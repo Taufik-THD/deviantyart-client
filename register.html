@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,15 +12,14 @@
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-  
+
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.3.1/dist/semantic.min.css">
   <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/semantic-ui/0.12.0/css/semantic.min.css"/>
   <link rel='stylesheet prefetch' href='https://jeffry.in/old-jeffry-in/css/jeffry.in.css'>
   <link rel='stylesheet prefetch' href='https://fonts.googleapis.com/css?family=Lobster|Raleway:300,500,700'>
-  <link rel='stylesheet' href='./index.css'>
-  <script src="./component/card.js"></script>
   <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
   <script src='https://cdn.jsdelivr.net/jquery.glide/1.0.6/jquery.glide.min.js'></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   <!-- Site Properties -->
   <title>Register</title>
 
@@ -52,7 +50,7 @@
   </script>
 </head>
 <body>
-
+<div id= "app">
 <div class="ui middle aligned center aligned grid">
   <div class="column login">
     <h2 class="ui image header">
@@ -66,35 +64,36 @@
         <div class="field">
           <div class="ui left icon input">
             <i class="user icon"></i>
-            <input type="text" name="name" placeholder="Name">
+            <input v-model='registerData.nama' type="text" name="nama" placeholder="nama">
           </div>
         </div>
 
         <div class="field">
             <div class="ui left icon input">
               <i class="user icon"></i>
-              <input type="text" name="username" placeholder="Username">
+              <input  v-model='registerData.email' type="text" name="email" placeholder="email">
             </div>
           </div>
 
         <div class="field">
           <div class="ui left icon input">
             <i class="lock icon"></i>
-            <input type="password" name="password" placeholder="Password">
+            <input  v-model='registerData.password' type="password" name="password" placeholder="Password">
           </div>
         </div>
-        <div class="ui fluid large black submit button">Sign Up</div>
+        <div @click='register'class="ui fluid large black submit button">Sign Up</div>
       </div>
-
-      <div class="ui error message"></div>
 
     </form>
 
     <div class="ui message">
-        Have an account? <a href="#">Log in Here</a>
+        Have an account? <a href="login.html">Log in Here</a>
       </div>
   </div>
 </div>
+</div>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="/script.js"></script>
 
 </body>
 
