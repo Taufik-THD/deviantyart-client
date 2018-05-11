@@ -9,7 +9,7 @@ Vue.component('images', {
             <img v-bind:src=gambar.pic_url>
           </div>
           <div class="content">
-            <a class="header">{{gambar.user_id}}</a>
+            <a class="header">{{gambar.picture_name}}</a>
             <div class="description">
              {{gambar.description}}<br>
              Likes : {{gambar.likes}}

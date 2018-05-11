@@ -24,9 +24,6 @@ const app = new Vue({
     }
   },
   methods: {
-    logout(){
-      localStorage.removeItem("token");
-      window.location = '/login.html'
     register: function (event) {
       event.preventDefault();
       axios.post('http://localhost:3000/register', this.registerData)
@@ -71,7 +68,7 @@ const app = new Vue({
       this.formdata.set('token', token)
       this.formdata.set('email', email)
 
-      axios.post('http://localhost:9000/image', this.formdata)
+      axios.post('http://localhost:3000/image', this.formdata)
       .then(response => {
         swal({
           title: "Yosh!",
@@ -91,7 +88,7 @@ const app = new Vue({
 
     },
     getImage(){
-      axios.get('http://localhost:9000/')
+      axios.get('http://localhost:3000/')
       .then(({data})=>{
         this.pictures = data.data
       })
