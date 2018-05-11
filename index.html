@@ -72,6 +72,19 @@
               </div>
             </div>
           </form>
+
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="#">Link</a></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="#">My Profile</a></li>
+                <li role="separator" class="divider"></li>
+                <li><a @click='logout' href="#">Log Out</a></li>
+              </ul>
+            </li>
+          </ul>
+
         </div><!-- /.navbar-collapse -->
       </div><!-- /.container-fluid -->
     </nav>
@@ -162,10 +175,17 @@
         <i class="fa fa-whatsapp"></i> Whatsapp
       </network>
   </div>
+  
+
+</body>
+</html>
+  
+
 </social-sharing>
 
    <!-- AddToAny END -->
   </div>
+
 
 </body>
 <script src="/dist/vue-social-sharing.min.js"></script>

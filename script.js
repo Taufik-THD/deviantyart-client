@@ -23,6 +23,9 @@ const app = new Vue({
     }
   },
   methods: {
+    logout(){
+      localStorage.removeItem("token");
+      window.location = '/login.html'
     register: function (event) {
       event.preventDefault();
       axios.post('http://localhost:3000/register', this.registerData)
