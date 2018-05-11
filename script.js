@@ -6,7 +6,8 @@ const app = new Vue({
   data:{
     loginData:{
       email:'',
-      password: ''
+      password: '',
+      token: ''
     },
     image: null,
     download: '',
@@ -49,7 +50,7 @@ const app = new Vue({
       axios.post('http://localhost:3000/login', this.loginData)
       .then(data => {
         localStorage.setItem('token', data.data)
-        window.location.href = 'index.html'
+        window.location.href = 'userpage.html'
       })
       .catch(err => {
         console.log(err);
@@ -62,11 +63,13 @@ const app = new Vue({
       // upload file
 
       var token = localStorage.getItem('token');
+      var email = localStorage.getItem('email');
 
       this.formdata.set('item', this.image)
       this.formdata.set('description', this.imageDetail.description)
       this.formdata.set('picture_name', this.imageDetail.name)
       this.formdata.set('token', token)
+      this.formdata.set('email', email)
 
       axios.post('http://localhost:9000/image', this.formdata)
       .then(response => {
